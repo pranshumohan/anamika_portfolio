@@ -1,0 +1,1915 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Anamika Pandey — Technical Growth Strategist &amp; AWS Certified. I translate complex architecture into high-conversion human stories.">
+  <title>Anamika Pandey · Growth Strategist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&amp;family=Space+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f0f17;
+      --bg2: #16161f;
+      --bg3: #1c1c28;
+      --card: rgba(255, 255, 255, .035);
+      --cardh: rgba(255, 255, 255, .065);
+      --bd: rgba(255, 255, 255, .08);
+      --bd2: rgba(255, 255, 255, .14);
+      --t1: #f2f2f6;
+      --t2: #9898b0;
+      --t3: #55556e;
+      --a: #f59e0b;
+      --a2: #fbbf24;
+      --a3: #fde68a;
+      --adk: #d97706;
+      --abg: rgba(245, 158, 11, .10);
+      --abg2: rgba(245, 158, 11, .18);
+      --abdr: rgba(245, 158, 11, .28);
+      --grad: linear-gradient(135deg, #f59e0b, #fbbf24);
+      --fs: 'DM Sans', system-ui, sans-serif;
+      --fd: 'Space Grotesk', system-ui, sans-serif;
+      --fm: 'JetBrains Mono', monospace;
+      --r: 12px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      font-family: var(--fs);
+      background: var(--bg);
+      color: var(--t1);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    ul {
+      list-style: none
+    }
+
+    canvas {
+      display: block
+    }
+
+    ::-webkit-scrollbar {
+      width: 4px
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg)
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--t3);
+      border-radius: 2px
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--a)
+    }
+
+    /* layout */
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 2rem
+    }
+
+    .eyebrow {
+      font-family: var(--fm);
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--a);
+      display: block;
+      margin-bottom: .5rem
+    }
+
+    .sec-h {
+      font-family: var(--fd);
+      font-size: clamp(24px, 3vw, 38px);
+      font-weight: 700;
+      letter-spacing: -.02em;
+      line-height: 1.2;
+      color: var(--t1);
+      margin-bottom: .4rem
+    }
+
+    .sec-sub {
+      font-size: 14.5px;
+      color: var(--t2);
+      max-width: 520px;
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 2.5rem
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--fm);
+      font-size: 11px;
+      padding: 4px 11px;
+      border-radius: 100px;
+      background: var(--card);
+      border: 1px solid var(--bd);
+      color: var(--t2);
+      transition: all .2s;
+      letter-spacing: .03em;
+      white-space: nowrap
+    }
+
+    .chip:hover,
+    .chip.hi {
+      background: var(--abg);
+      border-color: var(--abdr);
+      color: var(--a2)
+    }
+
+    .btn-a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--grad);
+      color: #0f0f17;
+      font-family: var(--fd);
+      font-weight: 600;
+      font-size: 14px;
+      padding: 11px 22px;
+      border-radius: 8px;
+      transition: opacity .2s, transform .2s;
+      cursor: pointer;
+      border: none
+    }
+
+    .btn-a:hover {
+      opacity: .88;
+      transform: translateY(-1px)
+    }
+
+    .btn-b {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--t1);
+      font-family: var(--fd);
+      font-weight: 500;
+      font-size: 14px;
+      padding: 10px 22px;
+      border-radius: 8px;
+      border: 1px solid var(--bd2);
+      transition: all .2s;
+      cursor: pointer
+    }
+
+    .btn-b:hover {
+      border-color: var(--a);
+      color: var(--a)
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .6s ease, transform .6s ease
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: none
+    }
+
+    /* edit bar */
+    #ebar {
+      position: fixed;
+      top: .8rem;
+      right: .8rem;
+      z-index: 9999;
+      background: rgba(15, 15, 23, .97);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--abdr);
+      border-radius: 10px;
+      padding: .55rem 1rem;
+      display: none;
+      align-items: center;
+      gap: .6rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .5)
+    }
+
+    #ebar.on {
+      display: flex
+    }
+
+    #ebar span {
+      font-family: var(--fm);
+      font-size: 11px;
+      color: var(--a)
+    }
+
+    #ebar button {
+      font-family: var(--fm);
+      font-size: 11px;
+      padding: 4px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      border: 1px solid var(--abdr);
+      background: var(--abg);
+      color: var(--a2);
+      transition: background .15s
+    }
+
+    #ebar button:hover {
+      background: var(--abg2)
+    }
+
+    .ex {
+      color: var(--t3) !important;
+      background: transparent !important;
+      border-color: transparent !important
+    }
+
+    .ex:hover {
+      color: var(--a) !important
+    }
+
+    [contenteditable=true] {
+      outline: 1.5px dashed var(--a) !important;
+      outline-offset: 2px;
+      border-radius: 3px
+    }
+
+    /* nav */
+    #nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      height: 100px;
+      transition: background .3s, box-shadow .3s;
+      background: rgba(15, 15, 23, .85);
+      backdrop-filter: blur(18px);
+    }
+
+    #nav.sc {
+      background: rgba(15, 15, 23, .92);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 1px 0 var(--bd)
+    }
+
+    .ni {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem
+    }
+
+    .nlogo {
+      font-family: var(--fd);
+      font-weight: 700;
+      font-size: 16px;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text
+    }
+
+    .nlinks {
+      display: flex;
+      gap: 2rem
+    }
+
+    .nlinks a {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--t2);
+      transition: color .2s
+    }
+
+    .nlinks a:hover,
+    .nlinks a.active {
+      color: var(--a)
+    }
+
+    .nr {
+      display: flex;
+      gap: .6rem;
+      align-items: center
+    }
+
+    .nres {
+      font-family: var(--fm);
+      font-size: 11px;
+      letter-spacing: .06em;
+      padding: 7px 15px;
+      border-radius: 7px;
+      border: 1px solid var(--abdr);
+      color: var(--a);
+      background: var(--abg);
+      transition: background .2s;
+      cursor: pointer
+    }
+
+    .nres:hover {
+      background: var(--abg2)
+    }
+
+    /* hero */
+    #home {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 100px 2rem 0;
+      position: relative;
+      overflow: hidden
+    }
+
+    .hbg1 {
+      position: absolute;
+      top: 0;
+      right: -5%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle at 60% 40%, rgba(245, 158, 11, .07), transparent 65%);
+      pointer-events: none
+    }
+
+    .hbg2 {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, .032) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent)
+    }
+
+    .hw {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 4rem;
+      align-items: center
+    }
+
+    .hgreet {
+      font-family: var(--fm);
+      font-size: 13px;
+      color: var(--a);
+      letter-spacing: .1em;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px
+    }
+
+    .hgreet::before {
+      content: '';
+      width: 30px;
+      height: 1px;
+      background: var(--a)
+    }
+
+    h1.hh {
+      font-family: var(--fd);
+      font-size: clamp(34px, 4.8vw, 58px);
+      font-weight: 700;
+      letter-spacing: -.025em;
+      line-height: 1.1;
+      color: var(--t1);
+      margin-bottom: .75rem
+    }
+
+    h1.hh .gg {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text
+    }
+
+    .hsub {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--t2);
+      max-width: 500px;
+      line-height: 1.85;
+      margin-bottom: 2.25rem
+    }
+
+    .hsub strong {
+      color: var(--t1);
+      font-weight: 500
+    }
+
+    .hbtns {
+      display: flex;
+      gap: .75rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.75rem
+    }
+
+    .hstats {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap
+    }
+
+    .hs {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding-right: 2rem;
+      border-right: 1px solid var(--bd)
+    }
+
+    .hs:last-child {
+      border-right: none;
+      padding-right: 0
+    }
+
+    .hsn {
+      font-family: var(--fd);
+      font-size: 22px;
+      font-weight: 700;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1
+    }
+
+    .hsl {
+      font-size: 11.5px;
+      color: var(--t3);
+      font-weight: 500
+    }
+
+    /* orb */
+    .hvis {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative
+    }
+
+    .ow {
+      position: relative;
+      width: 360px;
+      height: 360px
+    }
+
+    .or {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 1px solid var(--bd);
+      animation: spin 18s linear infinite
+    }
+
+    .or:nth-child(2) {
+      inset: 30px;
+      border-color: var(--abdr);
+      animation-duration: 12s;
+      animation-direction: reverse
+    }
+
+    .or:nth-child(3) {
+      inset: 60px;
+      border-color: var(--bd);
+      animation-duration: 24s
+    }
+
+    .oc {
+      position: absolute;
+      inset: 80px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 35%, rgba(245, 158, 11, .18), rgba(245, 158, 11, .04) 55%, transparent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--abdr)
+    }
+
+    .oinit {
+      font-family: var(--fd);
+      font-size: 52px;
+      font-weight: 700;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text
+    }
+
+    .ob1 {
+      position: absolute;
+      right: -18px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: .55rem
+    }
+
+    .ob2 {
+      position: absolute;
+      left: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: .55rem
+    }
+
+    .obadge {
+      background: var(--bg2);
+      border: 1px solid var(--bd);
+      border-radius: 8px;
+      padding: .4rem .7rem;
+      font-family: var(--fm);
+      font-size: 10px;
+      color: var(--t2);
+      white-space: nowrap;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, .4)
+    }
+
+    .obadge span {
+      color: var(--a);
+      margin-right: 5px
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    .shint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--fm);
+      font-size: 9.5px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--t3);
+      animation: bob 2.2s ease-in-out infinite
+    }
+
+    .shint::after {
+      content: '';
+      width: 1px;
+      height: 26px;
+      background: linear-gradient(to bottom, var(--t3), transparent)
+    }
+
+    @keyframes bob {
+
+      0%,
+      100% {
+        transform: translateX(-50%) translateY(0)
+      }
+
+      50% {
+        transform: translateX(-50%) translateY(5px)
+      }
+    }
+
+    /* about */
+    #about {
+      padding: 6rem 0 4rem
+    }
+
+    .agrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start
+    }
+
+    .acreds {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .7rem;
+      margin-top: 1.5rem
+    }
+
+    .ac {
+      display: flex;
+      align-items: flex-start;
+      gap: .7rem;
+      padding: .9rem;
+      background: var(--card);
+      border: 1px solid var(--bd);
+      border-radius: 10px
+    }
+
+    .aci {
+      width: 28px;
+      height: 28px;
+      background: var(--abg);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      flex-shrink: 0;
+      margin-top: 2px
+    }
+
+    .act h4 {
+      font-family: var(--fd);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--t1);
+      margin-bottom: 1px
+    }
+
+    .act p {
+      font-size: 11.5px;
+      color: var(--t3);
+      line-height: 1.4
+    }
+
+    .ar p {
+      font-size: 14.5px;
+      color: var(--t2);
+      line-height: 1.85;
+      font-weight: 300;
+      margin-bottom: 1rem
+    }
+
+    .ar p strong {
+      color: var(--t1);
+      font-weight: 500
+    }
+
+    .atags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: .5rem
+    }
+
+    /* work */
+    #work {
+      padding: 5rem 0;
+      background: var(--bg2)
+    }
+
+    .wtop {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem
+    }
+
+    .tabs {
+      display: flex;
+      gap: 4px;
+      background: var(--card);
+      border: 1px solid var(--bd);
+      border-radius: 10px;
+      padding: 4px
+    }
+
+    .tab {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--t2);
+      background: none;
+      border: none;
+      padding: .5rem 1.1rem;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: all .2s;
+      white-space: nowrap
+    }
+
+    .tab.on {
+      background: var(--abg2);
+      color: var(--a2);
+      border: 1px solid var(--abdr)
+    }
+
+    .panel {
+      display: none
+    }
+
+    .panel.on {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start
+    }
+
+    .ptag {
+      font-family: var(--fm);
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--a);
+      margin-bottom: .5rem
+    }
+
+    .ph {
+      font-family: var(--fd);
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--t1);
+      line-height: 1.35;
+      margin-bottom: 1.25rem
+    }
+
+    .plbl {
+      font-family: var(--fm);
+      font-size: 9.5px;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      color: var(--t3);
+      margin-bottom: .35rem;
+      margin-top: 1rem
+    }
+
+    .pbody {
+      font-size: 13.5px;
+      color: var(--t2);
+      line-height: 1.8;
+      font-weight: 300
+    }
+
+    .krow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: .6rem;
+      margin-top: 1.5rem
+    }
+
+    .kpi {
+      background: var(--card);
+      border: 1px solid var(--bd);
+      border-radius: 9px;
+      padding: .75rem .5rem;
+      text-align: center
+    }
+
+    .kpin {
+      font-family: var(--fd);
+      font-size: 18px;
+      font-weight: 700;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 3px
+    }
+
+    .kpil {
+      font-family: var(--fm);
+      font-size: 9px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      color: var(--t3);
+      line-height: 1.4
+    }
+
+    .cbox {
+      background: var(--card);
+      border: 1px solid var(--bd);
+      border-radius: var(--r);
+      padding: 1.25rem;
+      height: 310px;
+      position: relative
+    }
+
+    .cttl {
+      font-family: var(--fm);
+      font-size: 10px;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: var(--t3);
+      margin-bottom: 1rem
+    }
+
+    /* metrics */
+    #metrics {
+      padding: 5rem 0
+    }
+
+    .mhero {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: .7rem;
+      margin-bottom: 1.25rem
+    }
+
+    .mhc {
+      background: var(--card);
+      border: 1px solid var(--bd);
+      border-radius: var(--r);
+      padding: 1.25rem 1rem;
+      text-align: center;
+      transition: all .2s
+    }
+
+    .mhc:hover {
+      background: var(--cardh);
+      border-color: var(--abdr)
+    }
+
+    .mhn {
+      font-family: var(--fd);
+      font-size: 30px;
+      font-weight: 700;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 5px
+    }
+
+    .mhl {
+      font-size: 12px;
+      color: var(--t2);
+      line-height: 1.4
+    }
+
+    .mhs {
+      font-family: var(--fm);
+      font-size: 9.5px;
+      color: var(--t3);
+      margin-top: 3px
+    }
+
+    .mcharts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem
+    }
+
+    .mc {
+      background: var(--card);
+      border: 1px solid var(--bd);
+      border-radius: var(--r);
+      padding: 1.25rem;
+      height: 235px
+    }
+
+    .mcl {
+      font-family: var(--fm);
+      font-size: 10px;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: var(--t3);
+      margin-bottom: .75rem
+    }
+
+    /* skills */
+    #skills {
+      padding: 5rem 0;
+      background: var(--bg2)
+    }
+
+    .sgrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem
+    }
+
+    .sc {
+      background: var(--card);
+      border: 1px solid var(--bd);
+      border-radius: var(--r);
+      padding: 1.75rem;
+      transition: all .2s;
+      position: relative;
+      overflow: hidden
+    }
+
+    .sc::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 1.75rem;
+      right: 1.75rem;
+      height: 2px;
+      background: var(--grad);
+      border-radius: 0 0 2px 2px
+    }
+
+    .sc:hover {
+      background: var(--cardh);
+      border-color: var(--bd2)
+    }
+
+    .snum {
+      font-family: var(--fm);
+      font-size: 10px;
+      letter-spacing: .12em;
+      color: var(--a);
+      margin-bottom: .6rem
+    }
+
+    .stitle {
+      font-family: var(--fd);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--t1);
+      margin-bottom: .4rem
+    }
+
+    .sdesc {
+      font-size: 13px;
+      color: var(--t2);
+      font-weight: 300;
+      margin-bottom: 1.25rem;
+      line-height: 1.7
+    }
+
+    .schips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px
+    }
+
+    /* contact */
+    #contact {
+      padding: 5rem 0 6rem
+    }
+
+    .cgrid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 5rem;
+      align-items: center
+    }
+
+    .ch {
+      font-family: var(--fd);
+      font-size: clamp(26px, 3.2vw, 40px);
+      font-weight: 700;
+      letter-spacing: -.02em;
+      line-height: 1.2;
+      color: var(--t1);
+      margin-bottom: .6rem
+    }
+
+    .ch span {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text
+    }
+
+    .cp {
+      font-size: 14.5px;
+      color: var(--t2);
+      font-weight: 300;
+      line-height: 1.85;
+      margin-bottom: 1.75rem;
+      max-width: 460px
+    }
+
+    .cbtns {
+      display: flex;
+      gap: .75rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.75rem
+    }
+
+    .cmeta {
+      display: flex;
+      flex-direction: column;
+      gap: .85rem
+    }
+
+    .crow {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start
+    }
+
+    .clbl {
+      font-family: var(--fm);
+      font-size: 10px;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+      color: var(--t3);
+      padding-top: 3px;
+      min-width: 68px
+    }
+
+    .cval {
+      font-size: 13.5px;
+      color: var(--t2)
+    }
+
+    .cval a {
+      color: var(--a)
+    }
+
+    .cval a:hover {
+      opacity: .75
+    }
+
+    .cvis {
+      background: var(--card);
+      border: 1px solid var(--bd);
+      border-radius: 16px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: .85rem
+    }
+
+    .cvr {
+      display: flex;
+      align-items: center;
+      gap: .85rem;
+      padding: .8rem;
+      background: var(--bg);
+      border: 1px solid var(--bd);
+      border-radius: 10px
+    }
+
+    .cvi {
+      width: 34px;
+      height: 34px;
+      background: var(--abg);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      flex-shrink: 0
+    }
+
+    .cvt {
+      font-size: 13px;
+      color: var(--t2);
+      font-weight: 300
+    }
+
+    .cvt strong {
+      color: var(--t1);
+      display: block;
+      font-size: 13.5px;
+      font-weight: 500;
+      margin-bottom: 1px
+    }
+
+    /* footer */
+    footer {
+      border-top: 1px solid var(--bd);
+      padding: 1.5rem 0
+    }
+
+    .fi {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: .5rem
+    }
+
+    .ft {
+      font-family: var(--fm);
+      font-size: 11px;
+      color: var(--t3);
+      letter-spacing: .05em
+    }
+
+    .fed {
+      font-family: var(--fm);
+      font-size: 11px;
+      color: var(--t3);
+      cursor: pointer;
+      transition: color .2s;
+      user-select: none
+    }
+
+    .fed:hover {
+      color: var(--a)
+    }
+
+    /* responsive */
+    @media(max-width:900px) {
+
+      .hw,
+      .agrid,
+      .panel.on,
+      .cgrid {
+        grid-template-columns: 1fr
+      }
+
+      .hvis {
+        display: none
+      }
+
+      .sgrid,
+      .mcharts {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .mhero {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .nlinks {
+        display: none
+      }
+    }
+
+    @media(max-width:600px) {
+
+      .sgrid,
+      .mcharts {
+        grid-template-columns: 1fr
+      }
+
+      .krow {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .acreds {
+        grid-template-columns: 1fr
+      }
+
+      .hstats {
+        gap: 1.25rem
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  
+
+  <!-- Permanent export button — only in your local editor file -->
+  <div style="position:fixed;bottom:1.5rem;right:1.5rem;z-index:9998">
+    <button onclick="exportHTML()" style="font-family: var(--fm); font-size: 12px; letter-spacing: 0.06em; padding: 10px 20px; border-radius: 8px; border: 1px solid var(--abdr); background: var(--abg); color: var(--a2); cursor: pointer; box-shadow: rgba(0, 0, 0, 0.4) 0px 4px 20px; transition: background 0.2s;" onmouseover="this.style.background='var(--abg)'" onmouseout="this.style.background='var(--abg2)'">
+      ⬇ Export → index.html
+    </button>
+  </div>
+
+  <!-- NAV -->
+  <nav id="nav" class="">
+    <div class="ni">
+      <a href="#home" class="nlogo">Anamika Pandey</a>
+      <ul class="nlinks">
+        <li><a href="#about" class="">About</a></li>
+        <li><a href="#work" class="">Work</a></li>
+        <li><a href="#metrics" class="">Data</a></li>
+        <li><a href="#skills" class="">Expertise</a></li>
+        <li><a href="#contact" class="">Contact</a></li>
+      </ul>
+      <div class="nr">
+        <a href="https://drive.google.com/file/d/1-mXvutfLXvjA2zfm-qowu3BtA-tk_1Ml/view?usp=drive_link" class="nres resume-dl">Resume ↓</a>
+        <a href="#contact" class="btn-a" style="font-size:13px;padding:8px 18px">Let's Talk →</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HOME -->
+  <section id="home">
+    <div class="hbg1"></div>
+    <div class="hbg2"></div>
+    <div class="hw">
+      <div>
+        <p class="hgreet">Hi, I'm Anamika 👋</p>
+        <h1 class="hh">
+          <span>I translate complex technical</span><br>
+          <span>architecture into</span>
+          <span class="gg">high-conversion</span><br>
+          <span class="gg">human stories.</span>
+        </h1>
+        <p class="hsub">Helping <strong>SaaS and tech-forward brands</strong> bridge the gap
+          between backend engineering and frontend growth. AWS Certified · Data-obsessed · Results on record.</p>
+        <div class="hbtns">
+          <a href="#work" class="btn-a">View My Work →</a>
+          <a href="#contact" class="btn-b">Get In Touch</a>
+        </div>
+        <div class="hstats">
+          <div class="hs">
+            <div class="hsn" data-counter="40" data-sfx="%">40%</div>
+            <div class="hsl">Traffic Growth</div>
+          </div>
+          <div class="hs">
+            <div class="hsn" data-counter="38368" data-fmt="k" data-sfx="+">38K+</div>
+            <div class="hsl">Impressions</div>
+          </div>
+          <div class="hs">
+            <div class="hsn">6.91%</div>
+            <div class="hsl">Avg CTR</div>
+          </div>
+          <div class="hs">
+            <div class="hsn" data-counter="131">131</div>
+            <div class="hsl">Paid Leads</div>
+          </div>
+        </div>
+      </div>
+      <div class="hvis">
+        <div class="ow">
+          <div class="or"></div>
+          <div class="or"></div>
+          <div class="or"></div>
+          <div class="oc">
+            <div class="oinit">AP</div>
+          </div>
+          <div class="ob1">
+            <div class="obadge"><span>⬡</span>AWS Certified</div>
+            <div class="obadge"><span>◎</span>GA4 Expert</div>
+            <div class="obadge"><span>▣</span>Meta Ads</div>
+          </div>
+          <div class="ob2">
+            <div class="obadge"><span>◈</span>MS IT · 4.0 GPA</div>
+            <div class="obadge"><span>▸</span>B2B SaaS Growth</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="shint">Scroll</div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="agrid reveal in">
+        <div>
+          <span class="eyebrow">About Me</span>
+          <h2 class="sec-h">Technical enough to understand it. Strategic enough to sell it.</h2>
+          <div class="acreds">
+            <div class="ac">
+              <div class="aci">⬡</div>
+              <div class="act">
+                <h4>AWS Solutions Architect</h4>
+                <p>Certified · Infrastructure literacy most marketers can't match</p>
+              </div>
+            </div>
+            <div class="ac">
+              <div class="aci">🎓</div>
+              <div class="act">
+                <h4>MS Information Technology</h4>
+                <p>4.0 GPA · Middle Georgia State University, USA</p>
+              </div>
+            </div>
+            <div class="ac">
+              <div class="aci">📊</div>
+              <div class="act">
+                <h4>GA4 &amp; Full-Stack Tracking</h4>
+                <p>Server-side, GTM, attribution modelling</p>
+              </div>
+            </div>
+            <div class="ac">
+              <div class="aci">🚀</div>
+              <div class="act">
+                <h4>Co-Founder · Neesh Digital</h4>
+                <p>End-to-end GTM for SaaS &amp; B2B clients</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ar">
+          <p>I've spent years inside AWS architecture diagrams, GA4 event schemas, and server-side
+            tracking pipelines. That depth means I don't need a technical briefing to market a cloud product — <strong>I
+              already speak the language of the engineers building it.</strong></p>
+          <p>At BizCloud Experts (AWS Partner), I built a content engine generating <strong>38,368+
+              organic impressions</strong> at 6.91% average CTR — roughly 14× the LinkedIn B2B benchmark — without paid
+            amplification. The audience wasn't vanity followers: 844 Senior-level and 606 enterprise-company
+            professionals.</p>
+          <p>In paid media, I've managed campaigns across 8 international markets, cut CPL by 48%
+            through mid-campaign demographic pivots, and delivered 131 education leads at sub-₹35 CPL. Every number here
+            came from a report file, not an estimate.</p>
+          <div class="atags">
+            <span class="chip hi">BizCloud Experts · AWS Partner</span>
+            <span class="chip hi">Neesh Digital · Co-Founder</span>
+            <span class="chip">Phool Chatti Ashram</span>
+            <span class="chip">KKDM · IIT JEE</span>
+            <span class="chip">Klera Solutions</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="wrap">
+      <span class="eyebrow">Selected Work</span>
+      <div class="wtop">
+        <h2 class="sec-h" style="margin-bottom:0">Client campaigns. Real data. No estimates.</h2>
+        <div class="tabs">
+          <button class="tab on" onclick="sw(0)">BizCloud Experts</button>
+          <button class="tab" onclick="sw(1)">Yoga Retreat</button>
+          <button class="tab" onclick="sw(2)">IIT JEE Coaching</button>
+        </div>
+      </div>
+
+      <div class="panel on" id="p0">
+        <div class="reveal in">
+          <p class="ptag">AWS Partner · B2B Cloud Services · Mar 2023 – Present</p>
+          <h3 class="ph">Building a technical content engine that reaches C-suite without losing the
+            engineers.</h3>
+          <p class="plbl">The Challenge</p>
+          <p class="pbody">BizCloud had deep AWS engineering credibility but a stagnant LinkedIn
+            presence. The ICP — CIOs, CTOs, engineering leaders — needed a voice matching their technical
+            sophistication. Content was either too abstract for buyers or too generic for engineers.</p>
+          <p class="plbl">The Approach</p>
+          <p class="pbody">Built a 3-pillar content system (cloud governance, WAF/security, GenAI
+            infrastructure). Used GA4 to identify which formats drove real landing page engagement. Applied a hashtag
+            taxonomy validated through LinkedIn analytics to consistently reach Senior and C-suite seniority levels.</p>
+          <div class="krow">
+            <div class="kpi">
+              <div class="kpin">40%</div>
+              <div class="kpil">Traffic Growth</div>
+            </div>
+            <div class="kpi">
+              <div class="kpin">171</div>
+              <div class="kpil">Posts Authored</div>
+            </div>
+            <div class="kpi">
+              <div class="kpin">38K+</div>
+              <div class="kpil">Org. Impressions</div>
+            </div>
+            <div class="kpi">
+              <div class="kpin">6.91%</div>
+              <div class="kpil">Avg CTR</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="cbox">
+            <p class="cttl">LinkedIn Monthly Impressions · Apr 2025 – Mar 2026</p><canvas id="c0" style="height: 268px; display: block; box-sizing: border-box; width: 496px;" width="620" height="335"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" id="p1">
+        <div class="reveal">
+          <p class="ptag">Wellness Retreat · High-Ticket · International · Project-Based</p>
+          <h3 class="ph">48% CPL reduction through a mid-campaign demographic pivot across 8
+            markets.</h3>
+          <p class="plbl">The Challenge</p>
+          <p class="pbody">A 7-day yoga retreat needed bookings from wellness audiences across
+            India, US, France, Netherlands, Italy, Spain, Germany, Israel. Strict CPL ceiling. Previous campaigns had no
+            demographic-level decision-making — a significant efficiency leak.</p>
+          <p class="plbl">The Approach</p>
+          <p class="pbody">Geo-segmented campaigns per market. Live age/gender data revealed a 2.5×
+            CPL gap: male 25–34 at ₹44.62 vs female 25–34 at ₹111.62. Reallocated budget mid-flight to the
+            high-performing cohort. Blended CPL fell from ₹87.52 to ₹45.61 — a 48% drop without pausing a single ad.</p>
+          <div class="krow">
+            <div class="kpi">
+              <div class="kpin">98</div>
+              <div class="kpil">Leads / 7 Days</div>
+            </div>
+            <div class="kpi">
+              <div class="kpin">₹45.61</div>
+              <div class="kpil">Final CPL</div>
+            </div>
+            <div class="kpi">
+              <div class="kpin">8</div>
+              <div class="kpil">Markets Active</div>
+            </div>
+            <div class="kpi">
+              <div class="kpin">48%</div>
+              <div class="kpil">CPL Reduction</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="cbox">
+            <p class="cttl">CPL by Demographic Segment — The Pivot Insight</p><canvas id="c1" style="height:248px"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" id="p2">
+        <div class="reveal">
+          <p class="ptag">Education · Lead Generation · Oct – Nov 2025</p>
+          <h3 class="ph">3.4× lead volume at a lower CPL — the A/B campaign architecture in action.
+          </h3>
+          <p class="plbl">The Challenge</p>
+          <p class="pbody">An IIT JEE coaching institute needed high-intent leads within a strict
+            ₹40 CPL ceiling. Previous campaigns: high CPC, low conversion. A creative-to-audience mismatch that needed
+            more than new creative — it needed a different architecture.</p>
+          <p class="plbl">The Approach</p>
+          <p class="pbody">Deployed Campaign 1 as a deliberate learning vehicle with 7-day click
+            attribution to isolate high-intent signals. Applied every finding to a scaled variant. Result: Campaign 2
+            delivered 3.4× the leads at a lower CPL than an already on-target Campaign 1. Learning compounds.</p>
+          <div class="krow">
+            <div class="kpi">
+              <div class="kpin">131</div>
+              <div class="kpil">Total Leads</div>
+            </div>
+            <div class="kpi">
+              <div class="kpin">₹34.97</div>
+              <div class="kpil">Optimised CPL</div>
+            </div>
+            <div class="kpi">
+              <div class="kpin">247K+</div>
+              <div class="kpil">Combined Reach</div>
+            </div>
+            <div class="kpi">
+              <div class="kpin">3.4×</div>
+              <div class="kpil">Volume Scale</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="cbox">
+            <p class="cttl">Campaign 1 vs Scaled Campaign — Leads &amp; Reach</p><canvas id="c2" style="height:248px"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METRICS -->
+  <section id="metrics" class="in">
+    <div class="wrap">
+      <span class="eyebrow">By The Numbers</span>
+      <h2 class="sec-h">An audience built to convert, not just to follow.</h2>
+      <p class="sec-sub">LinkedIn analytics · BizCloud Experts page · Apr 2025 – Apr 2026. All
+        organic, zero paid follower campaigns.</p>
+      <div class="mhero reveal in">
+        <div class="mhc">
+          <div class="mhn">6.91%</div>
+          <div class="mhl">Average post CTR</div>
+          <div class="mhs">14× LinkedIn B2B benchmark (0.5%)</div>
+        </div>
+        <div class="mhc">
+          <div class="mhn">844</div>
+          <div class="mhl">Senior-level followers</div>
+          <div class="mhs">Built organically</div>
+        </div>
+        <div class="mhc">
+          <div class="mhn">606</div>
+          <div class="mhl">Enterprise followers</div>
+          <div class="mhs">10,001+ employee companies</div>
+        </div>
+        <div class="mhc">
+          <div class="mhn">10.26%</div>
+          <div class="mhl">Avg engagement rate</div>
+          <div class="mhs">Across 171 posts · 12 months</div>
+        </div>
+      </div>
+      <div class="mcharts reveal in">
+        <div class="mc">
+          <p class="mcl">Follower Seniority Breakdown — Organic</p>
+          <div style="position:relative;height:170px"><canvas id="cA" width="598" height="212" style="display: block; box-sizing: border-box; height: 170px; width: 478px;"></canvas></div>
+        </div>
+        <div class="mc">
+          <p class="mcl">Monthly Impressions Growth · 12 Months</p>
+          <div style="position:relative;height:170px"><canvas id="cG" width="598" height="212" style="display: block; box-sizing: border-box; height: 170px; width: 478px;"></canvas></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap">
+      <span class="eyebrow">Expertise</span>
+      <h2 class="sec-h">Three pillars. One person.</h2>
+      <p class="sec-sub">Built for B2B tech companies that need more than a content calendar — they
+        need a complete, measurable growth system.</p>
+      <div class="sgrid">
+        <div class="sc reveal in">
+          <p class="snum">01 / Growth Engineering</p>
+          <h3 class="stitle">Paid Media &amp; Funnels</h3>
+          <p class="sdesc">Building systems where traffic, intent, and conversion are connected by
+            data — not gut feel.</p>
+          <div class="schips">
+            <span class="chip hi">SaaS Funnel Architecture</span><span class="chip hi">Meta Ads Manager</span><span class="chip hi">Google Ads</span><span class="chip hi">CPL Optimisation</span><span class="chip">A/B
+              Testing</span><span class="chip">Audience Segmentation</span><span class="chip">MQL / SQL
+              Scoring</span><span class="chip">CRO</span><span class="chip">Budget Scaling</span>
+          </div>
+        </div>
+        <div class="sc reveal in" style="transition-delay:.08s">
+          <p class="snum">02 / Technical Architecture</p>
+          <h3 class="stitle">Infrastructure &amp; Analytics</h3>
+          <p class="sdesc">The layer most marketers outsource. She owns it — zero briefing sessions,
+            zero translation lag.</p>
+          <div class="schips">
+            <span class="chip hi">AWS Solutions Architect</span><span class="chip hi">GA4 Implementation</span><span class="chip hi">Server-Side Tracking</span><span class="chip hi">GTM</span><span class="chip">Amazon
+              QuickSight</span><span class="chip">WordPress</span><span class="chip">CRM Automation</span><span class="chip">Attribution Modelling</span>
+          </div>
+        </div>
+        <div class="sc reveal in" style="transition-delay:.16s">
+          <p class="snum">03 / Creative Strategy</p>
+          <h3 class="stitle">Content &amp; Storytelling</h3>
+          <p class="sdesc">Transforming AWS specs and SaaS feature lists into narratives that create
+            pipeline, not just impressions.</p>
+          <div class="schips">
+            <span class="chip hi">B2B Technical Storytelling</span><span class="chip hi">Content Pillar
+              Design</span><span class="chip hi">Canva (Advanced)</span><span class="chip hi">DaVinci
+              Resolve</span><span class="chip">Technical Copywriting</span><span class="chip">Press Releases</span><span class="chip">LinkedIn Organic</span><span class="chip">Community Management</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="cgrid">
+        <div class="reveal in">
+          <span class="eyebrow">Let's Work Together</span>
+          <h2 class="ch">Your product is complex.<br><span>Your growth story shouldn't be.</span></h2>
+          <p class="cp">If you're a founder, CMO, or CTO tired of explaining your product to
+            marketers who don't get it — this is the conversation worth having.</p>
+          <div class="cbtns">
+            <a href="mailto:anamika.p.18@gmail.com" class="btn-a">anamika.p.18@gmail.com →</a>
+            <a href="https://drive.google.com/file/d/1-mXvutfLXvjA2zfm-qowu3BtA-tk_1Ml/view?usp=drive_link" class="btn-b resume-dl">Download Resume ↓</a>
+          </div>
+          <div class="cmeta">
+            <div class="crow"><span class="clbl">Phone</span><span class="cval">+91 93905
+                36310</span></div>
+            <div class="crow"><span class="clbl">Location</span><span class="cval">Kanpur, India ·
+                Open to EST / GMT overlap</span></div>
+            <div class="crow"><span class="clbl">LinkedIn</span><span class="cval"><a href="https://www.linkedin.com/in/anamika-pandey-neesh-digital/" target="_blank">linkedin.com/in/anamika-pandey</a></span></div>
+            <div class="crow"><span class="clbl">Status</span><span class="cval">Available ·
+                Full-time or Consulting · Immediately</span></div>
+          </div>
+        </div>
+        <div class="cvis reveal in" style="transition-delay:.12s">
+          <div class="cvr">
+            <div class="cvi">📈</div>
+            <div class="cvt"><strong>Growth Marketing Manager</strong>BizCloud Experts · AWS Partner · Mar 2023 –
+              Present</div>
+          </div>
+          <div class="cvr">
+            <div class="cvi">🚀</div>
+            <div class="cvt"><strong>Co-Founder &amp; Lead Strategist</strong>Neesh Digital Solutions · Jan 2023 – Present
+            </div>
+          </div>
+          <div class="cvr">
+            <div class="cvi">🌿</div>
+            <div class="cvt"><strong>Digital Growth Strategist</strong>Phool Chatti Ashram · International Campaign
+            </div>
+          </div>
+          <div class="cvr">
+            <div class="cvi">✉️</div>
+            <div class="cvt"><strong>Email &amp; Digital Marketing Specialist</strong>Klera Solutions · Aug 2021 – Dec 2022
+            </div>
+          </div>
+          <div style="margin-top:.3rem;padding:.9rem;background:var(--abg);border:1px solid var(--abdr);border-radius:9px;text-align:center">
+            <div style="font-family:var(--fm);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--a);margin-bottom:4px">
+              Open To</div>
+            <div style="font-size:13px;color:var(--t1);font-weight:500">Full-time · Consulting ·
+              Global Remote</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="fi">
+        <p class="ft">© 2026 Anamika Pandey · Technical Growth Strategist · AWS Certified · MS IT</p>
+      </div>
+    </div>
+  </footer>
+
+  <script id="co-block">window.CO={
+  "nl": "Anamika Pandey",
+  "hg": "Hi, I'm Anamika 👋",
+  "h1a": "I translate complex technical",
+  "h1b": "architecture into",
+  "h1c": "high-conversion",
+  "h1d": "human stories.",
+  "hsub": "Helping <strong>SaaS and tech-forward brands</strong> bridge the gap\n          between backend engineering and frontend growth. AWS Certified · Data-obsessed · Results on record.",
+  "hs3": "6.91%",
+  "at": "Technical enough to understand it. Strategic enough to sell it.",
+  "ab1": "I've spent years inside AWS architecture diagrams, GA4 event schemas, and server-side\n            tracking pipelines. That depth means I don't need a technical briefing to market a cloud product — <strong>I\n              already speak the language of the engineers building it.</strong>",
+  "ab2": "At BizCloud Experts (AWS Partner), I built a content engine generating <strong>38,368+\n              organic impressions</strong> at 6.91% average CTR — roughly 14× the LinkedIn B2B benchmark — without paid\n            amplification. The audience wasn't vanity followers: 844 Senior-level and 606 enterprise-company\n            professionals.",
+  "ab3": "In paid media, I've managed campaigns across 8 international markets, cut CPL by 48%\n            through mid-campaign demographic pivots, and delivered 131 education leads at sub-₹35 CPL. Every number here\n            came from a report file, not an estimate.",
+  "wt": "Client campaigns. Real data. No estimates.",
+  "p0tg": "AWS Partner · B2B Cloud Services · Mar 2023 – Present",
+  "p0h": "Building a technical content engine that reaches C-suite without losing the\n            engineers.",
+  "p0c": "BizCloud had deep AWS engineering credibility but a stagnant LinkedIn\n            presence. The ICP — CIOs, CTOs, engineering leaders — needed a voice matching their technical\n            sophistication. Content was either too abstract for buyers or too generic for engineers.",
+  "p0a": "Built a 3-pillar content system (cloud governance, WAF/security, GenAI\n            infrastructure). Used GA4 to identify which formats drove real landing page engagement. Applied a hashtag\n            taxonomy validated through LinkedIn analytics to consistently reach Senior and C-suite seniority levels.",
+  "k0a": "40%",
+  "k0b": "171",
+  "k0c": "38K+",
+  "k0d": "6.91%",
+  "p1tg": "Wellness Retreat · High-Ticket · International · Project-Based",
+  "p1h": "48% CPL reduction through a mid-campaign demographic pivot across 8\n            markets.",
+  "p1c": "A 7-day yoga retreat needed bookings from wellness audiences across\n            India, US, France, Netherlands, Italy, Spain, Germany, Israel. Strict CPL ceiling. Previous campaigns had no\n            demographic-level decision-making — a significant efficiency leak.",
+  "p1a": "Geo-segmented campaigns per market. Live age/gender data revealed a 2.5×\n            CPL gap: male 25–34 at ₹44.62 vs female 25–34 at ₹111.62. Reallocated budget mid-flight to the\n            high-performing cohort. Blended CPL fell from ₹87.52 to ₹45.61 — a 48% drop without pausing a single ad.",
+  "k1a": "98",
+  "k1b": "₹45.61",
+  "k1c": "8",
+  "k1d": "48%",
+  "p2tg": "Education · Lead Generation · Oct – Nov 2025",
+  "p2h": "3.4× lead volume at a lower CPL — the A/B campaign architecture in action.\n          ",
+  "p2c": "An IIT JEE coaching institute needed high-intent leads within a strict\n            ₹40 CPL ceiling. Previous campaigns: high CPC, low conversion. A creative-to-audience mismatch that needed\n            more than new creative — it needed a different architecture.",
+  "p2a": "Deployed Campaign 1 as a deliberate learning vehicle with 7-day click\n            attribution to isolate high-intent signals. Applied every finding to a scaled variant. Result: Campaign 2\n            delivered 3.4× the leads at a lower CPL than an already on-target Campaign 1. Learning compounds.",
+  "k2a": "131",
+  "k2b": "₹34.97",
+  "k2c": "247K+",
+  "k2d": "3.4×",
+  "mt": "An audience built to convert, not just to follow.",
+  "ms": "LinkedIn analytics · BizCloud Experts page · Apr 2025 – Apr 2026. All\n        organic, zero paid follower campaigns.",
+  "m1n": "6.91%",
+  "m1l": "Average post CTR",
+  "m2n": "844",
+  "m2l": "Senior-level followers",
+  "m3n": "606",
+  "m3l": "Enterprise followers",
+  "m4n": "10.26%",
+  "m4l": "Avg engagement rate",
+  "skt": "Three pillars. One person.",
+  "sks": "Built for B2B tech companies that need more than a content calendar — they\n        need a complete, measurable growth system.",
+  "s1t": "Paid Media &amp; Funnels",
+  "s1d": "Building systems where traffic, intent, and conversion are connected by\n            data — not gut feel.",
+  "s2t": "Infrastructure &amp; Analytics",
+  "s2d": "The layer most marketers outsource. She owns it — zero briefing sessions,\n            zero translation lag.",
+  "s3t": "Content &amp; Storytelling",
+  "s3d": "Transforming AWS specs and SaaS feature lists into narratives that create\n            pipeline, not just impressions.",
+  "ctp": "If you're a founder, CMO, or CTO tired of explaining your product to\n            marketers who don't get it — this is the conversation worth having.",
+  "cte": "anamika.p.18@gmail.com →",
+  "cph": "+91 93905\n                36310",
+  "cloc": "Kanpur, India ·\n                Open to EST / GMT overlap",
+  "cli": "linkedin.com/in/anamika-pandey",
+  "cst": "Available ·\n                Full-time or Consulting · Immediately",
+  "copen": "Full-time · Consulting ·\n              Global Remote",
+  "__ru": "https://drive.google.com/file/d/1-mXvutfLXvjA2zfm-qowu3BtA-tk_1Ml/view?usp=drive_link"
+};</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+  <script>
+    /* ╔══════════════════════════════════════════╗
+       ║  EDIT CONTENT / DATA BELOW               ║
+       ║  resumeUrl → your PDF link               ║
+       ║  chart data → update as numbers grow     ║
+       ║  OR: Ctrl+Shift+E to edit visually       ║
+       ╚══════════════════════════════════════════╝ */
+    const CFG = {
+      resumeUrl: 'https://drive.google.com/file/d/1-mXvutfLXvjA2zfm-qowu3BtA-tk_1Ml/view?usp=drive_link',
+      charts: {
+        li: {
+          labels: ["Apr '25", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan '26", "Feb", "Mar"],
+          data: [925, 2749, 3362, 2962, 8184, 3699, 2963, 1818, 5200, 1614, 1655, 3237]
+        },
+        demo: {
+          labels: ['Male 25–34', 'Male 35–44', 'Male 65+', 'Female 25–34', 'Female 35–44'],
+          cpl: [44.62, 65.22, 70.97, 111.62, 135.98],
+          leads: [56, 13, 10, 10, 5]
+        },
+        camp: {
+          labels: ['Campaign 1 (Initial)', 'Campaign 2 (Scaled)'],
+          leads: [30, 101], cpl: [39.88, 34.97], reach: [57950, 189581]
+        },
+        aud: {
+          labels: ['Senior', 'Entry', 'Director', 'Manager', 'CXO', 'VP'],
+          data: [844, 590, 120, 127, 75, 75]
+        }
+      }
+    };
+
+    /* chart defaults */
+    Chart.defaults.font.family = "'JetBrains Mono',monospace";
+    Chart.defaults.font.size = 10;
+    Chart.defaults.plugins.legend.display = false;
+    Chart.defaults.plugins.tooltip.backgroundColor = '#1c1c28';
+    Chart.defaults.plugins.tooltip.titleColor = '#fbbf24';
+    Chart.defaults.plugins.tooltip.bodyColor = '#9898b0';
+    Chart.defaults.plugins.tooltip.padding = 10;
+    Chart.defaults.plugins.tooltip.cornerRadius = 6;
+    const A = '#f59e0b', A2 = 'rgba(245,158,11,.18)', A3 = 'rgba(245,158,11,.5)',
+      G = 'rgba(255,255,255,.05)', GT = '#55556e';
+    let B = {};
+
+    function mkC(i) {
+      if (B[i]) return; B[i] = true; const d = CFG.charts;
+      if (i === 0) {
+        new Chart(document.getElementById('c0'), {
+          type: 'line',
+          data: { labels: d.li.labels, datasets: [{ data: d.li.data, borderColor: A, backgroundColor: A2, borderWidth: 2, pointBackgroundColor: A, pointRadius: 3, pointHoverRadius: 5, fill: true, tension: .4 }] },
+          options: {
+            responsive: true, maintainAspectRatio: false,
+            scales: { x: { grid: { color: G }, ticks: { color: GT } }, y: { grid: { color: G }, ticks: { color: GT, callback: v => v >= 1000 ? (v / 1000).toFixed(0) + 'K' : v } } },
+            plugins: { tooltip: { callbacks: { label: c => ' ' + c.parsed.y.toLocaleString() + ' impressions' } } }
+          }
+        });
+      }
+      if (i === 1) {
+        new Chart(document.getElementById('c1'), {
+          type: 'bar',
+          data: { labels: d.demo.labels, datasets: [{ data: d.demo.cpl, backgroundColor: [A, A3, A3, 'rgba(255,255,255,.08)', 'rgba(255,255,255,.05)'], borderRadius: 5, borderSkipped: false }] },
+          options: {
+            indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+            scales: { x: { grid: { color: G }, ticks: { color: GT, callback: v => '₹' + v } }, y: { grid: { display: false }, ticks: { color: GT } } },
+            plugins: { tooltip: { callbacks: { label: c => ' ₹' + c.parsed.x.toFixed(2) + ' CPL · ' + d.demo.leads[c.dataIndex] + ' leads' } } }
+          }
+        });
+      }
+      if (i === 2) {
+        new Chart(document.getElementById('c2'), {
+          type: 'bar',
+          data: {
+            labels: d.camp.labels, datasets: [
+              { label: 'Leads', data: d.camp.leads, backgroundColor: [A3, A], borderRadius: 5, borderSkipped: false, yAxisID: 'yL' },
+              { label: 'Reach ÷1000', data: d.camp.reach.map(r => Math.round(r / 1000)), backgroundColor: ['rgba(255,255,255,.06)', 'rgba(255,255,255,.12)'], borderRadius: 5, borderSkipped: false, yAxisID: 'yR' }
+            ]
+          },
+          options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: { legend: { display: true, labels: { color: GT, boxWidth: 10, padding: 12 } } },
+            scales: {
+              yL: { position: 'left', grid: { color: G }, ticks: { color: GT }, title: { display: true, text: 'Leads', color: GT } },
+              yR: { position: 'right', grid: { display: false }, ticks: { color: GT }, title: { display: true, text: 'Reach (K)', color: GT } },
+              x: { grid: { display: false }, ticks: { color: GT } }
+            }
+          }
+        });
+      }
+    }
+
+    let dA = false, dG = false;
+    function mkDark() {
+      if (!dA) {
+        dA = true; new Chart(document.getElementById('cA'), {
+          type: 'doughnut',
+          data: {
+            labels: CFG.charts.aud.labels, datasets: [{
+              data: CFG.charts.aud.data,
+              backgroundColor: ['#f59e0b', '#fbbf24', '#d97706', '#fde68a', '#92400e', '#78350f'], borderWidth: 0, hoverOffset: 4
+            }]
+          },
+          options: {
+            responsive: true, maintainAspectRatio: false, cutout: '60%',
+            plugins: {
+              legend: { display: true, position: 'right', labels: { color: '#9898b0', font: { size: 11 }, boxWidth: 10, padding: 9 } },
+              tooltip: { callbacks: { label: c => ' ' + c.label + ': ' + c.parsed + ' followers' } }
+            }
+          }
+        });
+      }
+      if (!dG) {
+        dG = true; new Chart(document.getElementById('cG'), {
+          type: 'line',
+          data: { labels: CFG.charts.li.labels, datasets: [{ data: CFG.charts.li.data, borderColor: A, backgroundColor: A2, borderWidth: 2, pointBackgroundColor: A, pointRadius: 3, fill: true, tension: .4 }] },
+          options: {
+            responsive: true, maintainAspectRatio: false,
+            scales: { x: { grid: { color: G }, ticks: { color: GT } }, y: { grid: { color: G }, ticks: { color: GT, callback: v => v >= 1000 ? (v / 1000).toFixed(0) + 'K' : v } } },
+            plugins: { tooltip: { callbacks: { label: c => ' ' + c.parsed.y.toLocaleString() + ' impressions' } } }
+          }
+        });
+      }
+    }
+
+    /* tabs */
+    function sw(i) {
+      document.querySelectorAll('.tab').forEach((t, j) => t.classList.toggle('on', j === i));
+      document.querySelectorAll('.panel').forEach((p, j) => p.classList.toggle('on', j === i));
+      setTimeout(() => mkC(i), 60);
+    }
+
+    /* observers */
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('in');
+        if (e.target.id === 'metrics') setTimeout(mkDark, 100);
+        io.unobserve(e.target);
+      });
+    }, { threshold: .07 });
+    document.querySelectorAll('.reveal,#metrics').forEach(el => io.observe(el));
+
+    /* counters */
+    const co = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target, t = parseFloat(el.dataset.counter);
+        if (isNaN(t)) return;
+        const fmt = el.dataset.fmt, sfx = el.dataset.sfx || '', dur = 1500; let t0 = null;
+        const step = ts => {
+          if (!t0) t0 = ts;
+          const p = Math.min((ts - t0) / dur, 1), ease = 1 - Math.pow(1 - p, 3), cur = Math.floor(ease * t);
+          el.textContent = fmt === 'k' && cur >= 1000 ? (cur / 1000).toFixed(0) + 'K' + sfx : cur.toLocaleString() + sfx;
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step); co.unobserve(el);
+      });
+    }, { threshold: .5 });
+    document.querySelectorAll('[data-counter]').forEach(el => co.observe(el));
+
+    /* nav */
+    const navEl = document.getElementById('nav');
+    const sids = ['home', 'about', 'work', 'metrics', 'skills', 'contact'];
+    window.addEventListener('scroll', () => {
+      navEl.classList.toggle('sc', scrollY > 20);
+      let cur = 'home';
+      sids.forEach(id => { const s = document.getElementById(id); if (s && scrollY >= s.offsetTop - 110) cur = id; });
+      document.querySelectorAll('.nlinks a').forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
+    }, { passive: true });
+
+    /* edit */
+    let editOn = false;
+    function loadContent() {
+      const ls = JSON.parse(localStorage.getItem('pe') || '{}');
+      document.querySelectorAll('[data-k]').forEach(el => {
+        const v = (window.CO && window.CO[el.dataset.k]) || ls[el.dataset.k];
+        if (v !== undefined) el.innerHTML = v;
+      });
+      const ru = (window.CO && window.CO.__ru) || ls.__ru || CFG.resumeUrl;
+      document.querySelectorAll('.resume-dl').forEach(el => el.href = ru);
+    }
+    function toggleEdit() {
+      const pin = prompt('Enter edit PIN:');
+      if (pin !== '8788') return;  // ← change 1234 to whatever PIN you want
+      editOn = !editOn;
+      document.getElementById('ebar').classList.toggle('on', editOn);
+      document.querySelectorAll('[data-e]').forEach(el => {
+        el.contentEditable = editOn ? 'true' : 'false';
+        if (editOn) el.addEventListener('input', onEdit);
+      });
+    }
+    function onEdit(e) {
+      const k = e.target.dataset.k; if (!k) return;
+      const ls = JSON.parse(localStorage.getItem('pe') || '{}');
+      ls[k] = e.target.innerHTML; localStorage.setItem('pe', JSON.stringify(ls));
+    }
+    function resetEdits() {
+      if (!confirm('Reset all edits to defaults?')) return;
+      localStorage.removeItem('pe'); location.reload();
+    }
+    function exportHTML() {
+      const ov = {};
+      document.querySelectorAll('[data-k]').forEach(el => { ov[el.dataset.k] = el.innerHTML; });
+      ov.__ru = document.querySelector('.resume-dl')?.href || CFG.resumeUrl;
+
+      const clone = document.documentElement.cloneNode(true);
+
+      // Bake content overrides
+      const cos = clone.querySelector('#co-block');
+      if (cos) cos.textContent = 'window.CO=' + JSON.stringify(ov, null, 2) + ';';
+
+      // Strip ALL edit infrastructure from the exported file
+      const bar = clone.querySelector('#ebar');
+      if (bar) bar.remove();                                      // removes edit toolbar HTML
+
+      clone.querySelectorAll('[contenteditable]').forEach(el => el.removeAttribute('contenteditable'));
+      clone.querySelectorAll('[data-e]').forEach(el => el.removeAttribute('data-e'));
+      clone.querySelectorAll('[data-k]').forEach(el => el.removeAttribute('data-k'));
+      clone.querySelectorAll('.fed').forEach(el => el.remove()); // removes footer edit link if present
+
+      // Strip the edit JS functions from the script block
+      const scripts = clone.querySelectorAll('script:not([src])');
+      scripts.forEach(s => {
+        s.textContent = s.textContent
+          .replace(/function toggleEdit[\s\S]*?^}/m, '')
+          .replace(/function onEdit[\s\S]*?^}/m, '')
+          .replace(/function resetEdits[\s\S]*?^}/m, '')
+          .replace(/function exportHTML[\s\S]*?^}/m, '')
+          .replace(/function loadContent[\s\S]*?^}/m, '')
+          .replace(/document\.addEventListener\('keydown'[\s\S]*?\}\);/m, '')
+          .replace(//, '');
+      });
+
+      const blob = new Blob(['<!DOCTYPE html>\n' + clone.outerHTML], { type: 'text/html' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'index.html';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => { loadContent(); setTimeout(() => mkC(0), 120); });
+  </script>
+
+
+</body></html>
